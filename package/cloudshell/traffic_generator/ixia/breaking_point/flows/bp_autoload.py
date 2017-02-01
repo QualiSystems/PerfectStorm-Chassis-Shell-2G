@@ -2,6 +2,8 @@ from cloudshell.traffic_generator.ixia.breaking_point.rest_actions.status_action
 from cloudshell.traffic_generator.ixia.breaking_point.rest_api.rest_session_manager import RestSessionManager
 
 
+
+
 class BPAutoload(object):
     def __init__(self, session_manager, logger):
         """
