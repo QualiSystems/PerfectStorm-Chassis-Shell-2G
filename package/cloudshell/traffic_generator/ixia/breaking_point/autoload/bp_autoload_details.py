@@ -2,16 +2,16 @@ class BPAutoloadDetails(object):
     def __init__(self, root_builder, chassis_builder, modules_builder, ports_builder):
         self._elements = {}
 
-    def build_root(self):
+    def build_root_element(self):
         pass
 
-    def build_chassis(self):
+    def build_chassis_elements(self):
         pass
 
-    def build_modules(self):
+    def build_module_elements(self):
         pass
 
-    def build_ports(self):
+    def build_port_elements(self):
         pass
 
     def discover(self):

@@ -17,6 +17,14 @@ class Chassis(Resource):
     def version(self, value):
         self._add_attribute('Version', value)
 
+    @property
+    def server_description(self):
+        return self._get_attribute('Server Description')
+
+    @server_description.setter
+    def server_description(self, value):
+        self._add_attribute('Server Description', value)
+
 
 class Module(Resource):
     MODEL = 'Module'
@@ -38,7 +46,7 @@ class Port(Resource):
 
 if __name__ == '__main__':
     ch = Chassis(1, '123')
-    ch.version='dsdsdsd34343'
+    ch.version = 'dsdsdsd34343'
     m = Module(2, '234')
     m.add_parent(ch)
     p1 = Port(-1, '345')

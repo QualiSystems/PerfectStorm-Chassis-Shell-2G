@@ -1,3 +1,4 @@
+from abc import ABCMeta
 from cloudshell.shell.core.driver_context import AutoLoadResource, AutoLoadAttribute
 from cloudshell.traffic_generator.ixia.breaking_point.autoload.structure_node import StructureNode
 
@@ -17,6 +18,8 @@ class Resource(AutoLoadResource, StructureNode):
     MODEL = 'Generic resource'
     NAME_TEMPLATE = 'Resource {}'
     PREFIX = 'R'
+
+    __metaclass__ = ABCMeta
 
     def __init__(self, resource_id, unique_identifier):
         StructureNode.__init__(self, resource_id)
