@@ -1,7 +1,7 @@
 from cloudshell.traffic_generator.ixia.breaking_point.rest_api.rest_json_client import RestJsonClient
 
 
-class StatusActions(object):
+class AutoloadActions(object):
     def __init__(self, rest_service, logger):
         """
         Reboot actions
@@ -15,14 +15,14 @@ class StatusActions(object):
         self._logger = logger
 
     def get_ports_info(self):
-        self._logger.debug('Port status request')
+        self._logger.debug('Ports info request')
         uri = '/api/v1/bps/ports'
         data = self._rest_service.request_get(uri)
         result = data.get('portReservationState')
         return result
 
-    def get_chassis_info(self):
-        self._logger.debug('Chassis config request ')
+    def get_modules_info(self):
+        self._logger.debug('Modules info request ')
         uri = '/api/v1/bps/ports/chassisconfig'
         data = self._rest_service.request_get(uri)
 
