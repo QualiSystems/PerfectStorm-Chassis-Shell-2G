@@ -27,6 +27,7 @@ class BPPortsInfo(object):
         data = re.findall(r'\[slot=(\d+),port=(\d+)\]', ports_info)
         ports = {}
         for mod_id, port_id in data:
-            unique_id = self.PREFIX + str(port_id)
-            ports[unique_id] = Port(port_id, unique_id, parent_id=BPModulesInfo.PREFIX + str(mod_id))
+            parent_unique_id = BPModulesInfo.PREFIX + str(mod_id)
+            unique_id = parent_unique_id + self.PREFIX + str(port_id)
+            ports[unique_id] = Port(port_id, unique_id, parent_id=parent_unique_id)
         return ports
