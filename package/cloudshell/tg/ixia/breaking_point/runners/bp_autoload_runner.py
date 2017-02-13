@@ -1,5 +1,5 @@
-from cloudshell.traffic_generator.ixia.breaking_point.flows.bp_autoload_flow import BPAutoloadFlow
-from cloudshell.traffic_generator.ixia.breaking_point.rest_api.rest_session_manager import RestSessionManager
+from cloudshell.tg.ixia.breaking_point.flows.bp_autoload_flow import BPAutoloadFlow
+from cloudshell.tg.ixia.breaking_point.rest_api.rest_session_manager import RestSessionManager
 
 
 class BPAutoloadRunner(object):

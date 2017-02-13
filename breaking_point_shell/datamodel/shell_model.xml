@@ -4,7 +4,7 @@
 	</ShellAttributes>
 
     <ShellModel Family="Traffic Generator Chassis">
-        <ResourceModel Name="TestCenter Chassis" Description="Spirent TestCenter (STC) chassis" SupportsConcurrentCommands="false">
+        <ResourceModel Name="Breaking Point Chassis" Description="Breaking Point chassis" SupportsConcurrentCommands="false">
     		<AttachedAttributes>
         		<AttachedAttribute Name="Client Install Path" IsOverridable="true" IsLocal="true">
             		<AllowedValues />
@@ -35,7 +35,7 @@
             	</AttachedAttribute>
       		</AttachedAttributes>
             <Drivers>
-                <DriverName>TestCenterChassisDriver</DriverName>
+                <DriverName>Breaking Point Chassis Driver</DriverName>
             </Drivers>
         </ResourceModel>
     </ShellModel>

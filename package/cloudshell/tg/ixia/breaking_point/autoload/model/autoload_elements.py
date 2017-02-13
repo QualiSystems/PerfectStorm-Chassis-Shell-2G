@@ -1,6 +1,6 @@
 from abc import ABCMeta
 from cloudshell.shell.core.driver_context import AutoLoadResource, AutoLoadAttribute
-from cloudshell.traffic_generator.ixia.breaking_point.autoload.model.structure_node import StructureNode
+from cloudshell.tg.ixia.breaking_point.autoload.model.structure_node import StructureNode
 
 
 class Attribute(AutoLoadAttribute):

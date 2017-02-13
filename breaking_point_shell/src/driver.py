@@ -1,23 +1,20 @@
-
+from cloudshell.networking.devices.driver_helper import get_logger_with_thread_id, get_api
 from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterface
+from cloudshell.tg.ixia.breaking_point.runners.bp_autoload_runner import BPAutoloadRunner
 
-from stc_handler import StcHandler
 
-
-class TestCenterChassisDriver(ResourceDriverInterface):
+class BreakingPointChassisDriver(ResourceDriverInterface):
+    SUPPORTED_OS = 'Breaking Point'
 
     def __init__(self):
-        self.handler = StcHandler()
+        pass
 
     def initialize(self, context):
         """
         :type context: cloudshell.shell.core.driver_context.InitCommandContext
         """
-        self.handler.initialize(context)
-        return 'Finished initializing'
+        pass
 
-    # Destroy the driver session, this function is called every time a driver instance is destroyed
-    # This is a good place to close any open sessions, finish writing to log files
     def cleanup(self):
         pass
 
@@ -27,7 +24,9 @@ class TestCenterChassisDriver(ResourceDriverInterface):
         :type context: cloudshell.shell.core.driver_context.AutoLoadCommandContext
         :rtype: cloudshell.shell.core.driver_context.AutoLoadDetails
         """
-        return self.handler.get_inventory(context)
 
-    def set_port_logic_name(self,context,logic_names):
-        return self.handler.set_port_attribute(context,logic_names)
+        logger = get_logger_with_thread_id(context)
+        api = get_api(context)
+        autoload_runner = BPAutoloadRunner(context, logger, api, self.SUPPORTED_OS)
+
+        return autoload_runner.discover()

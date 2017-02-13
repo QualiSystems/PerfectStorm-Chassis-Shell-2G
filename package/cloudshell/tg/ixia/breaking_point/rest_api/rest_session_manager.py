@@ -1,6 +1,6 @@
 from cloudshell.shell.core.context_utils import get_attribute_by_name, get_resource_address
-from cloudshell.traffic_generator.ixia.breaking_point.rest_actions.auth_actions import AuthActions
-from cloudshell.traffic_generator.ixia.breaking_point.rest_api.rest_json_client import RestJsonClient
+from cloudshell.tg.ixia.breaking_point.rest_actions.auth_actions import AuthActions
+from cloudshell.tg.ixia.breaking_point.rest_api.rest_json_client import RestJsonClient
 
 
 class RestSessionContextManager(object):

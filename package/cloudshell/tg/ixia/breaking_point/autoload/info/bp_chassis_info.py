@@ -1,5 +1,5 @@
-from cloudshell.traffic_generator.ixia.breaking_point.autoload.model.bp_chassis_entities import Chassis
-from cloudshell.traffic_generator.ixia.breaking_point.rest_actions.autoload_actions import AutoloadActions
+from cloudshell.tg.ixia.breaking_point.autoload.model.bp_chassis_entities import Chassis
+from cloudshell.tg.ixia.breaking_point.rest_actions.autoload_actions import AutoloadActions
 
 
 class BPChassisInfo(object):

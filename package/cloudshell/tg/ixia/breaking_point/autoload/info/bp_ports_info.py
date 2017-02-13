@@ -1,9 +1,7 @@
-from cloudshell.traffic_generator.ixia.breaking_point.autoload.info.bp_modules_info import BPModulesInfo
-from cloudshell.traffic_generator.ixia.breaking_point.autoload.model.bp_chassis_entities import Port
+from cloudshell.tg.ixia.breaking_point.autoload.info.bp_modules_info import BPModulesInfo
+from cloudshell.tg.ixia.breaking_point.autoload.model.bp_chassis_entities import Port
 import re
-from cloudshell.traffic_generator.ixia.breaking_point.rest_actions.autoload_actions import AutoloadActions
-from cloudshell.traffic_generator.ixia.breaking_point.rest_api.rest_json_client import RestJsonClient
-import json
+from cloudshell.tg.ixia.breaking_point.rest_actions.autoload_actions import AutoloadActions
 
 
 class BPPortsInfo(object):

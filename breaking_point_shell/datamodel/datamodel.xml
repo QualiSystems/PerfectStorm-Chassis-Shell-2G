@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DataModelInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.qualisystems.com/ResourceManagement/DataModelSchema.xsd">
   
-  	<Attributes>    	<AttributeInfo Name="Client Install Path" Type="String" DefaultValue="" IsReadOnly="false"
+  	<Attributes>
+    	<AttributeInfo Name="Client Install Path" Type="String" DefaultValue="" IsReadOnly="false"
     				   Description="The path in which the traffic client is installed on the Execution Server. For example 'C:/Program Files (x86)/Ixia/IxOS/6.90-EA'.">
       		<Rules>
         		<Rule Name="Configuration" />
@@ -89,7 +90,7 @@
 
   	<ResourceFamilies>
 
-    	<ResourceFamily Name="Traffic Generator Chassis" Description="" IsSearchable="true">
+    	<ResourceFamily Name="Breaking Point Chassis" Description="" IsSearchable="true">
     		<Models />
       		<Categories />
     	</ResourceFamily>
@@ -114,7 +115,7 @@
                         </AttachedAttribute>
                     </AttachedAttributes>
                     <ParentModels>
-						<ParentModelName>TestCenter Chassis</ParentModelName>
+						<ParentModelName>Breaking Point Chassis</ParentModelName>
                     </ParentModels>
                     <Drivers/>
                     <Scripts/>
@@ -135,7 +136,7 @@
                         </AttachedAttribute>
 					</AttachedAttributes>
 					<ParentModels>
-						<ParentModelName>TestCenter Chassis</ParentModelName>
+						<ParentModelName>Breaking Point Chassis</ParentModelName>
 					</ParentModels>
         		</ResourceModel>
 			</Models>
@@ -147,7 +148,7 @@
 			<Models>
 	        	<ResourceModel Name="Generic Port Group" Description="Generic Port Group" SupportsConcurrentCommands="false">
 					<ParentModels>
-						<ParentModelName>TestCenter Chassis</ParentModelName>
+						<ParentModelName>Breaking Point Chassis</ParentModelName>
 						<ParentModelName>Generic Traffic Generator Module</ParentModelName>
 					</ParentModels>
         		</ResourceModel>
@@ -173,7 +174,7 @@
           				</AttachedAttribute>
       				</AttachedAttributes>
 					<ParentModels>
-						<ParentModelName>TestCenter Chassis</ParentModelName>
+						<ParentModelName>Breaking Point Chassis</ParentModelName>
 						<ParentModelName>Generic Traffic Generator Module</ParentModelName>
 						<ParentModelName>Generic Port Group</ParentModelName>
 					</ParentModels>
@@ -185,7 +186,7 @@
 	</ResourceFamilies>
 
   	<DriverDescriptors>
-    	<DriverDescriptor Name="TestCenterChassisDriver" DriverType="PythonDriver" />
+    	<DriverDescriptor Name="Breaking Point Chassis Driver" DriverType="PythonDriver" />
   	</DriverDescriptors>
 
 </DataModelInfo>
