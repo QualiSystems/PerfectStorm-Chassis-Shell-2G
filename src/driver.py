@@ -1,6 +1,6 @@
 from cloudshell.networking.devices.driver_helper import get_logger_with_thread_id, get_api
 from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterface
-from cloudshell.tg.ixia.breaking_point.runners.bp_autoload_runner import BPAutoloadRunner
+from cloudshell.tg.breaking_point.runners.bp_autoload_runner import BPAutoloadRunner
 
 
 class BreakingPointChassisDriver(ResourceDriverInterface):
