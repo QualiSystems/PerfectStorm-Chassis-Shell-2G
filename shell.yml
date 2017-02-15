@@ -1,0 +1,7 @@
+shell:
+    name: stc_shell
+    author: Yaroslav Nikonorov
+    email: yaroslav.n@quali.com
+    description: Breaking Point chassis shell
+    version: 1.0.1
+    driver_name: BreakingPointChassisDriver
