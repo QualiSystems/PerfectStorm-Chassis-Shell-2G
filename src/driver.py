@@ -21,7 +21,6 @@ class BreakingPointChassisDriver(ResourceDriverInterface):
 
     def get_inventory(self, context):
         """ Return device structure with all standard attributes
-
         :type context: cloudshell.shell.core.driver_context.AutoLoadCommandContext
         :rtype: cloudshell.shell.core.driver_context.AutoLoadDetails
         """
