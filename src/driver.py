@@ -25,11 +25,7 @@ class BreakingPointChassisDriver(ResourceDriverInterface):
         :rtype: cloudshell.shell.core.driver_context.AutoLoadDetails
         """
 
-        # logger = get_logger_with_thread_id(context)
-        # api = get_api(context)
-        # autoload_runner = BPAutoloadRunner(context, logger, api, self.SUPPORTED_OS)
-        # return autoload_runner.discover()
-        chassis = AutoLoadResource('Breaking Point Chassis', 'Chassis0', 'CH0', 'CH0')
-        details = AutoLoadDetails([chassis], [])
-
-        return details
+        logger = get_logger_with_thread_id(context)
+        api = get_api(context)
+        autoload_runner = BPAutoloadRunner(context, logger, api, self.SUPPORTED_OS)
+        return autoload_runner.discover()
