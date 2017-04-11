@@ -7,7 +7,7 @@ from bp_chassis.actions.autoload_actions import AutoloadActions
 class BPAutoloadFlow(BPFlow):
     def autoload_details(self):
         elements = {}
-        with self._session_manager.get_session() as session:
+        with self._session_context_manager as session:
             autoload_actions = AutoloadActions(session, self._logger)
             ports_info = BPPortsInfo(autoload_actions, self._logger)
             elements.update(ports_info.collect())
