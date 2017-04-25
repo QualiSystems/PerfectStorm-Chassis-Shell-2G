@@ -4,10 +4,10 @@ python:
 
 install:
     - 'if [ ${TRAVIS_BRANCH} = "master" ]; then
-        pip install --extra-index-url https://testpypi.python.org/pypi -r src/requirements.txt
+        pip install --extra-index-url https://testpypi.python.org/pypi -r src/requirements.txt;
       else
-        pip install --extra-index-url https://testpypi.python.org/pypi -r dev_requirements.txt
-        echo ------ranch ${TRAVIS_BRANCH}
+        pip install --extra-index-url https://testpypi.python.org/pypi -r dev_requirements.txt;
+        echo ------ranch ${TRAVIS_BRANCH};
       fi'
     - pip install -r test_requirements.txt
     - pip install coveralls
