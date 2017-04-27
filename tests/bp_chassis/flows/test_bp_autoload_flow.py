@@ -62,9 +62,8 @@ class TestBPAutoloadFlow(TestCase):
         value2 = Mock()
         value2.parent_id = key1
         attributes1 = [Mock()]
-        attributes2 = [Mock()]
         value1.autoload_attributes = attributes1
-        value2.autoload_attributes = attributes2
+        value2.autoload_attributes = []
         value1.relative_address = None
         value2.relative_address = Mock()
         resource = Mock()
@@ -73,7 +72,4 @@ class TestBPAutoloadFlow(TestCase):
         autoload_instance = Mock()
         autoload_details_class.return_value = autoload_instance
         self.assertIs(autoload_instance, self._instance._build_autoload_details(elements))
-        attributes = []
-        attributes.extend(attributes1)
-        attributes.extend(attributes2)
-        autoload_details_class.assert_called_once_with([resource], attributes)
+        autoload_details_class.assert_called_once_with([resource], attributes1)

@@ -28,7 +28,10 @@ class IdValidator(ValidatorInterface):
         return registered
 
     def get_valid(self):
-        new_id = max(self._paths) + 1
+        if len(self._paths) > 0:
+            new_id = max(self._paths) + 1
+        else:
+            new_id = 0
         self._paths[new_id].append(None)
         return new_id
 

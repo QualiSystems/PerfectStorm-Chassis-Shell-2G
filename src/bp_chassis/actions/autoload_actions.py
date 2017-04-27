@@ -1,5 +1,4 @@
 from cloudshell.tg.breaking_point.rest_actions.rest_actions import RestActions
-from cloudshell.tg.breaking_point.rest_api.rest_json_client import RestJsonClient
 
 
 class AutoloadActions(RestActions):
