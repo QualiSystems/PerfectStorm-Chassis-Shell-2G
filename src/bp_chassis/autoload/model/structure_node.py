@@ -105,6 +105,8 @@ class RelativeAddress(object):
 
 
 class StructureNode(object):
+    __metaclass__ = ABCMeta
+
     def __init__(self, resource_id):
         self._relative_address = RelativeAddress(path_id=resource_id, path_prefix=self._prefix)
         self._id_validator = None
