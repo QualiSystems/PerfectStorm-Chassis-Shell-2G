@@ -8,15 +8,3 @@ class AutoloadActions(RestActions):
         data = self._rest_service.request_get(uri)
         result = data.get('portReservationState')
         return result
-
-    def get_modules_info(self):
-        self._logger.debug('Modules info request ')
-        uri = '/api/v1/bps/ports/chassisconfig'
-        data = self._rest_service.request_get(uri)
-
-        result = {}
-        for blade_id, blade_info in data.iteritems():
-            if blade_info.get('state').lower() == 'ok':
-                result[blade_id] = blade_info
-
-        return result
