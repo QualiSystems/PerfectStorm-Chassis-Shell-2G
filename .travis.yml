@@ -12,7 +12,7 @@ install:
     - pip install coveralls
 
 script:
-    - nosetests --with-coverage --cover-package=src
+    - nosetests --with-coverage --cover-package=src --where=tests
 
 after_success:
     - coveralls
