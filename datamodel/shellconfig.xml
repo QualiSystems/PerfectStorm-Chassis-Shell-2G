@@ -7,12 +7,13 @@
             	<Description>Load Breaking Point chassis</Description>
         	</AutoLoad>
         <Attributes>
-            <Attribute Name="User" Value="admin" />
-            <Attribute Name="Password" Value="admin" />
-            <Attribute Name="Client Install Path" Value="" />
-            <Attribute Name="Controller Group" Value="" />
-            <Attribute Name="Power Management" Value="" />
-            <Attribute Name="Supported Applications" Value="" />
+                <Attribute Name="User" Value="" />
+                <Attribute Name="Password" Value="" />
+            	<Attribute Name="Client Install Path" Value="" />
+            	<Attribute Name="Controller Address" Value="" />
+            	<Attribute Name="Controller TCP Port" Value="" />
+            	<Attribute Name="Power Management" Value="" />
+            	<Attribute Name="Supported Applications" Value="" />
         </Attributes>
     	</ResourceTemplate>
 	</ResourceTemplates>
