@@ -42,7 +42,7 @@
                 </AttachedAttribute>
             </AttachedAttributes>
             <Drivers>
-                <DriverName>IxiaChassisDriver</DriverName>
+                <DriverName>BreakingPointChassisDriver</DriverName>
             </Drivers>
         </ResourceModel>
     </ShellModel>
