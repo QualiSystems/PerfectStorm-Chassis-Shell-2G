@@ -2,7 +2,7 @@
     <ShellAttributes>
     </ShellAttributes>
     <ShellModel Family="Traffic Generator Chassis">
-        <ResourceModel Name="Breaking Point Chassis" Description="Breaking Point Chassis" SupportsConcurrentCommands="false">
+        <ResourceModel Name="PerfectStorm Chassis" Description="PerfectStorm Chassis" SupportsConcurrentCommands="false">
             <AttachedAttributes>
                 <AttachedAttribute Name="Client Install Path" IsOverridable="true" IsLocal="true">
                     <AllowedValues/>
@@ -42,7 +42,7 @@
                 </AttachedAttribute>
             </AttachedAttributes>
             <Drivers>
-                <DriverName>BreakingPointChassisDriver</DriverName>
+                <DriverName>PerfectStormChassisDriver</DriverName>
             </Drivers>
         </ResourceModel>
     </ShellModel>

@@ -88,6 +88,15 @@
 	     		<Rule Name="Setting" />
       		</Rules>
     	</AttributeInfo>
+    	<AttributeInfo Name="Supported Controller" Type="String" DefaultValue="" IsReadOnly="false"
+    				   Description="Controller supported by this module.">
+      		<Rules>
+      			<Rule Name="Admin Only" />
+	     		<Rule Name="Available For Abstract Resources" />
+        		<Rule Name="Configuration" />
+	     		<Rule Name="Setting" />
+      		</Rules>
+    	</AttributeInfo>
         <AttributeInfo Name="User" Type="String" DefaultValue="" IsReadOnly="false"
          			   Description="">
             <Rules>
@@ -134,7 +143,7 @@
                         </AttachedAttribute>
                     </AttachedAttributes>
                     <ParentModels>
-						<ParentModelName>Breaking Point Chassis</ParentModelName>
+						<ParentModelName>PerfectStorm Chassis</ParentModelName>
 						<ParentModelName>Generic Traffic Generator Module</ParentModelName>
                     </ParentModels>
                     <Drivers/>
@@ -156,9 +165,12 @@
                         <AttachedAttribute Name="Version" IsOverridable="true" IsLocal="true">
                             <AllowedValues/>
                         </AttachedAttribute>
+                        <AttachedAttribute Name="Supported Controller" IsOverridable="true" IsLocal="true">
+                            <AllowedValues/>
+                        </AttachedAttribute>
 					</AttachedAttributes>
 					<ParentModels>
-						<ParentModelName>Breaking Point Chassis</ParentModelName>
+						<ParentModelName>PerfectStorm Chassis</ParentModelName>
 					</ParentModels>
         		</ResourceModel>
 			</Models>
@@ -199,6 +211,6 @@
    		</ResourceFamily>
 	</ResourceFamilies>
   	<DriverDescriptors>
-    	<DriverDescriptor Name="BreakingPointChassisDriver" DriverType="PythonDriver" />
+    	<DriverDescriptor Name="PerfectStormChassisDriver" DriverType="PythonDriver" />
   	</DriverDescriptors>
 </DataModelInfo>

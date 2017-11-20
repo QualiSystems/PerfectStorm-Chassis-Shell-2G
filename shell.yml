@@ -1,7 +1,7 @@
 shell:
-    name: breaking_point_chassis_shell
-    author: Yaroslav Nikonorov
-    email: yaroslav.n@quali.com
-    description: Breaking Point chassis shell
-    version: 1.0.2
-    driver_name: BreakingPointChassisDriver
+  author: Yoram Shamir
+  description: PerfectStorm Chassis shell
+  driver_name: PerfectStormChassisDriver
+  email: yoram-s@quali.com
+  name: perfectstorm_chassis_shell
+  version: 1.0.0

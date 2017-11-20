@@ -64,3 +64,6 @@ target/
 
 #Macosx
 .DS_Store
+
+.project
+.pydevproject

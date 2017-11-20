@@ -1,7 +1,8 @@
+
 from mock import patch, Mock
 from unittest2 import TestCase
 
-from driver import BreakingPointChassisDriver
+from src.driver import BreakingPointChassisDriver
 
 
 class TestDriver(TestCase):
