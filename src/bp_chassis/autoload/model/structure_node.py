@@ -28,7 +28,10 @@ class IdValidator(ValidatorInterface):
         return registered
 
     def get_valid(self):
-        new_id = max(self._paths) + 1
+        if len(self._paths) > 0:
+            new_id = max(self._paths) + 1
+        else:
+            new_id = 0
         self._paths[new_id].append(None)
         return new_id
 
@@ -102,6 +105,8 @@ class RelativeAddress(object):
 
 
 class StructureNode(object):
+    __metaclass__ = ABCMeta
+
     def __init__(self, resource_id):
         self._relative_address = RelativeAddress(path_id=resource_id, path_prefix=self._prefix)
         self._id_validator = None

@@ -1,5 +1,5 @@
 install:
-    host: 10.5.1.2
+    host: localhost
     port: 9000
     username: admin
     password: admin

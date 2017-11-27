@@ -1,6 +1,6 @@
 from cloudshell.shell.core.driver_context import AutoLoadDetails
-from bp_chassis.autoload.info.bp_ports_info import BPPortsInfo
 from cloudshell.tg.breaking_point.flows.bp_flow import BPFlow
+from bp_chassis.autoload.info.bp_ports_info import BPPortsInfo
 from bp_chassis.actions.autoload_actions import AutoloadActions
 
 

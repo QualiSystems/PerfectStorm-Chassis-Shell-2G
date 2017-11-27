@@ -61,3 +61,9 @@ target/
 #Ipython Notebook
 .ipynb_checkpoints
 .pypirc
+
+#Macosx
+.DS_Store
+
+.project
+.pydevproject
