@@ -1,8 +1,7 @@
-<Driver Description="Autoload driver for Breaking Point chassis" MainClass="driver.BreakingPointChassisDriver"
-        Name="BreakingPointChassisDriver" Version="1.0.0">
+<Driver Description="Autoload driver for Breaking Point chassis" MainClass="driver.PerfectStormChassisDriver" Name="PerfectStormChassisDriver" Version="1.0.0">
     <Layout>
 
-        <Command Name="get_inventory" DisplayName="Autoload" Tags="" Description="Import device into Cloudshell">
+        <Command Description="Import device into Cloudshell" DisplayName="Autoload" Name="get_inventory" Tags="">
         </Command>
     </Layout>
 </Driver>
