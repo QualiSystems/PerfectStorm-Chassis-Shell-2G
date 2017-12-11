@@ -7,7 +7,7 @@
         		<Rule Name="Configuration" />
       		</Rules>
     	</AttributeInfo>
-    	<AttributeInfo Name="Configured Controllers" Type="String" DefaultValue="1000" IsReadOnly="true"
+    	<AttributeInfo Name="Configured Controllers" Type="String" DefaultValue="" IsReadOnly="true"
     				   Description="The controllers configured on this port in case of port that supports multi controllers.">
       		<Rules>
 	       		<Rule Name="Available For Abstract Resources" />
