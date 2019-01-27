@@ -3,7 +3,7 @@ from bp_chassis.autoload.model.parent_aware import ParentAware
 
 
 class Chassis(Resource, ParentAware):
-    MODEL = 'Breaking Point Chassis'
+    MODEL = 'PerfectStorm Chassis Shell 2G'
     NAME_TEMPLATE = 'Chassis {}'
     PREFIX = 'CH'
 
@@ -29,7 +29,7 @@ class Chassis(Resource, ParentAware):
 
 
 class Module(Resource, ParentAware):
-    MODEL = 'Generic Traffic Generator Module'
+    MODEL = 'PerfectStorm Chassis Shell 2G.GenericTrafficGeneratorModule'
     NAME_TEMPLATE = 'Module {}'
     PREFIX = 'M'
 
@@ -47,7 +47,7 @@ class Module(Resource, ParentAware):
 
 
 class Port(Resource, ParentAware):
-    MODEL = 'Generic Traffic Generator Port'
+    MODEL = 'PerfectStorm Chassis Shell 2G.GenericTrafficGeneratorPort'
     NAME_TEMPLATE = 'Port {}'
     PREFIX = 'P'
 

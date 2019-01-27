@@ -1,6 +1,0 @@
-install:
-    host: localhost
-    port: 9000
-    username: admin
-    password: admin
-    domain: Global

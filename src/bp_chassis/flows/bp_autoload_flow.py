@@ -1,3 +1,4 @@
+
 from cloudshell.shell.core.driver_context import AutoLoadDetails
 from cloudshell.tg.breaking_point.flows.bp_flow import BPFlow
 from bp_chassis.autoload.info.bp_ports_info import BPPortsInfo
@@ -5,6 +6,10 @@ from bp_chassis.actions.autoload_actions import AutoloadActions
 
 
 class BPAutoloadFlow(BPFlow):
+
+    def __init__(self, session_context_manager, logger):
+        super(self.__class__, self).__init__(session_context_manager, logger)
+
     def autoload_details(self):
         elements = {}
         with self._session_context_manager as session:

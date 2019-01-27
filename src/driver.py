@@ -33,8 +33,9 @@ class PerfectStormChassisDriver(ResourceDriverInterface):
         auto_load_details = self.autoload_runner.discover()
 
         address = context.resource.address
-        user = context.resource.attributes['User']
-        password = get_api(context).DecryptPassword(context.resource.attributes['Password']).Value
+        user = context.resource.attributes['PerfectStorm Chassis Shell 2G.User']
+        encripted_password = context.resource.attributes['PerfectStorm Chassis Shell 2G.Password']
+        password = get_api(context).DecryptPassword(encripted_password).Value
         import paramiko
         self.ssh = paramiko.SSHClient()
         self.ssh.load_system_host_keys()
@@ -45,16 +46,17 @@ class PerfectStormChassisDriver(ResourceDriverInterface):
         self.ssh_call('set chassis [$bps getChassis]')
         modules = {}
         for resource in auto_load_details.resources:
-            if resource.model == 'Generic Traffic Generator Module':
+            if resource.model == 'PerfectStorm Chassis Shell 2G.GenericTrafficGeneratorModule':
                 relative_address = resource.relative_address
                 modules[relative_address] = self.ssh_call('$chassis getCardMode ' + relative_address[1:]).split()[0]
         for resource in auto_load_details.resources:
-            if resource.model == 'Generic Traffic Generator Port':
+            if resource.model == 'PerfectStorm Chassis Shell 2G.GenericTrafficGeneratorPort':
                 port_module = resource.relative_address.split('/')[0]
                 if port_module in modules.keys():
-                    auto_load_details.attributes.append(AutoLoadAttribute(relative_address=resource.relative_address,
-                                                                          attribute_name='Supported Controller',
-                                                                          attribute_value=modules[port_module]))
+                    auto_load_details.attributes.append(AutoLoadAttribute(
+                        relative_address=resource.relative_address,
+                        attribute_name='CS_TrafficGeneratorPort.Configured Controllers',
+                        attribute_value=modules[port_module]))
         return auto_load_details
 
     def ssh_call(self, string, *args):

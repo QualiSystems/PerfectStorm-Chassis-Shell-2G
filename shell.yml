@@ -1,7 +1,0 @@
-shell:
-  author: Yoram Shamir
-  description: PerfectStorm Chassis shell
-  driver_name: PerfectStormChassisDriver
-  email: yoram-s@quali.com
-  name: perfectstorm_chassis_shell
-  version: 1.0.0

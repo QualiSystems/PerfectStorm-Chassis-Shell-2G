@@ -9,7 +9,7 @@ import sys
 import logging
 import unittest
 
-from shellfoundry.releasetools.test_helper import create_session_from_cloudshell_config, create_autoload_context
+from shellfoundry.releasetools.test_helper import create_autoload_context_2g
 
 from driver import PerfectStormChassisDriver
 
@@ -21,9 +21,8 @@ admin_passowrd = 'DxTbqlSgAVPmrDLlHvJrsA=='
 class TestPerfectStormChassisDriver(unittest.TestCase):
 
     def setUp(self):
-        self.session = create_session_from_cloudshell_config()
-        self.context = create_autoload_context(self.session, address=address, client_install_path='', controller='',
-                                               port='', user=user, password=admin_passowrd)
+        self.context = create_autoload_context_2g(model='PerfectStorm Chassis Shell 2G', address=address,
+                                                  user=user, password=admin_passowrd)
         self.driver = PerfectStormChassisDriver()
         self.driver.initialize(self.context)
         print self.driver.logger.handlers[0].baseFilename
@@ -40,7 +39,7 @@ class TestPerfectStormChassisDriver(unittest.TestCase):
         for r in self.inventory.resources:
             print r.relative_address, r.model, r.name
         for a in self.inventory.attributes:
-            print a.relative_address, a.attribute_name, a.attribute_value
+            print('{} {} = {}'.format(a.relative_address, a.attribute_name, a.attribute_value))
 
 
 if __name__ == '__main__':

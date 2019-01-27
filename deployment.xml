@@ -22,7 +22,7 @@
             <sources>
                 <source>src</source>
             </sources>
-            <targetName>PerfectStorm Chassis Driver</targetName>
+            <targetName>PerfectStormChassisShell2GDriver</targetName>
         </driver>
     </drivers>
 

@@ -9,7 +9,7 @@ import sys
 import unittest
 
 from cloudshell.api.cloudshell_api import ResourceAttributesUpdateRequest, AttributeNameValue
-from shellfoundry.releasetools.test_helper import create_session_from_cloudshell_config
+from cloudshell.api.cloudshell_api import CloudShellAPISession
 
 stc_chassis = {'perfectstorm': {'address': '192.168.28.7',
                                 'controller': '',
@@ -27,7 +27,7 @@ class TestIxiaChassisShell(unittest.TestCase):
     session = None
 
     def setUp(self):
-        self.session = create_session_from_cloudshell_config()
+        self.session = CloudShellAPISession('localhost', 'admin', 'admin', 'Global')
 
     def tearDown(self):
         for resource in self.session.GetResourceList('Testing').Resources:
@@ -40,17 +40,16 @@ class TestIxiaChassisShell(unittest.TestCase):
         self._get_inventory('perfectstorm', stc_chassis['perfectstorm'])
 
     def _get_inventory(self, name, properties):
-        self.resource = self.session.CreateResource(resourceFamily='Traffic Generator Chassis',
-                                                    resourceModel='PerfectStorm Chassis',
+        self.resource = self.session.CreateResource(resourceFamily='CS_TrafficGeneratorChassis',
+                                                    resourceModel='PerfectStorm Chassis Shell 2G',
                                                     resourceName=name,
                                                     resourceAddress=properties['address'],
                                                     folderFullPath='Testing',
                                                     parentResourceFullPath='',
                                                     resourceDescription='should be removed after test')
-        self.session.UpdateResourceDriver(self.resource.Name, 'PerfectStormChassisDriver')
-        attributes = [AttributeNameValue('Controller Address', properties['controller']),
-                      AttributeNameValue('User', properties['user']),
-                      AttributeNameValue('Password', properties['password'])]
+        self.session.UpdateResourceDriver(self.resource.Name, 'PerfectStorm Chassis Shell 2G')
+        attributes = [AttributeNameValue('PerfectStorm Chassis Shell 2G.User', properties['user']),
+                      AttributeNameValue('PerfectStorm Chassis Shell 2G.Password', properties['password'])]
         self.session.SetAttributesValues(ResourceAttributesUpdateRequest(self.resource.Name, attributes))
         self.session.AutoLoad(self.resource.Name)
         resource_details = self.session.GetResourceDetails(self.resource.Name)
