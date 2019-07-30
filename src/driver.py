@@ -1,15 +1,14 @@
-
-from cloudshell.shell.core.driver_context import AutoLoadAttribute
+from cloudshell.devices.driver_helper import get_logger_with_thread_id, get_api
+from cloudshell.devices.standards.traffic.chassis.configuration_attributes_structure import \
+    GenericTrafficChassisResource
 from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterface
-from cloudshell.tg.breaking_point.helpers.context_utils import get_api
-
-from cloudshell.traffic import tg_helper
-
-from bp_chassis.runners.bp_autoload_runner import BPAutoloadRunner
+from cloudshell.tg.breaking_point.runners.bp_autoload_runner import BPAutoloadRunner
+from cloudshell.shell.core.driver_context import AutoLoadAttribute
 
 
-class PerfectStormChassisDriver(ResourceDriverInterface):
-    SUPPORTED_OS = 'Breaking Point'
+class PerfectStormChassisShell2G(ResourceDriverInterface):
+    SUPPORTED_OS = ['Breaking Point']
+    SHELL_NAME = 'PerfectStorm Chassis Shell 2G'
 
     def __init__(self):
         pass
@@ -18,8 +17,7 @@ class PerfectStormChassisDriver(ResourceDriverInterface):
         """
         :type context: cloudshell.shell.core.driver_context.InitCommandContext
         """
-        self.logger = tg_helper.get_logger(context)
-        self.autoload_runner = BPAutoloadRunner(context, self.logger, get_api(context), self.SUPPORTED_OS)
+        pass
 
     def cleanup(self):
         pass
@@ -30,11 +28,18 @@ class PerfectStormChassisDriver(ResourceDriverInterface):
         :rtype: cloudshell.shell.core.driver_context.AutoLoadDetails
         """
 
-        auto_load_details = self.autoload_runner.discover()
+        resource_config = GenericTrafficChassisResource.from_context(self.SHELL_NAME, self.SUPPORTED_OS, context)
+
+        logger = get_logger_with_thread_id(context)
+        api = get_api(context)
+        autoload_runner = BPAutoloadRunner(resource_config, self.SHELL_NAME, api, logger)
+        auto_load_details = autoload_runner.discover()
+
+        # Here comes PS...
 
         address = context.resource.address
-        user = context.resource.attributes['PerfectStorm Chassis Shell 2G.User']
-        encripted_password = context.resource.attributes['PerfectStorm Chassis Shell 2G.Password']
+        user = context.resource.attributes['{}.User'.format(PerfectStorm2GDriver.SHELL_NAME)]
+        encripted_password = context.resource.attributes['{}.Password'.format(PerfectStorm2GDriver.SHELL_NAME)]
         password = get_api(context).DecryptPassword(encripted_password).Value
         import paramiko
         self.ssh = paramiko.SSHClient()
@@ -46,11 +51,11 @@ class PerfectStormChassisDriver(ResourceDriverInterface):
         self.ssh_call('set chassis [$bps getChassis]')
         modules = {}
         for resource in auto_load_details.resources:
-            if resource.model == 'PerfectStorm Chassis Shell 2G.GenericTrafficGeneratorModule':
+            if resource.model == '{}.GenericTrafficGeneratorModule'.format(PerfectStorm2GDriver.SHELL_NAME):
                 relative_address = resource.relative_address
                 modules[relative_address] = self.ssh_call('$chassis getCardMode ' + relative_address[1:]).split()[0]
         for resource in auto_load_details.resources:
-            if resource.model == 'PerfectStorm Chassis Shell 2G.GenericTrafficGeneratorPort':
+            if resource.model == '{}.GenericTrafficGeneratorPort'.format(PerfectStorm2GDriver.SHELL_NAME):
                 port_module = resource.relative_address.split('/')[0]
                 if port_module in modules.keys():
                     auto_load_details.attributes.append(AutoLoadAttribute(

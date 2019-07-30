@@ -1,20 +1,20 @@
-﻿tosca_definitions_version: tosca_simple_yaml_1_0
+tosca_definitions_version: tosca_simple_yaml_1_0
 
 metadata:
   template_name: PerfectStorm Chassis Shell 2G
-  template_author: Quali
-  template_version: 1.0.0
+  template_author: Anonymous
+  template_version: 2.0.0
   template_icon: shell-icon.png
 
 description: >
-  PerfectStorm chassis shell
+  TOSCA based service shell
 
 imports:
-  - cloudshell_standard: cloudshell_traffic_generator_chassis_standard_1_0_2.yaml
+  - cloudshell_standard: cloudshell_traffic_generator_chassis_standard_1_0_3.yaml
 
 node_types:
 
-  vendor.PerfectStorm Chassis Shell 2G:
+  vendor.resource.PerfectStorm Chassis Shell 2G:
     derived_from: cloudshell.nodes.TrafficGeneratorChassis
     capabilities:
       auto_discovery_capability:
@@ -22,12 +22,14 @@ node_types:
         properties:
           User:
             type: string
+            default: admin
           Password:
-            type: cloudshell.datatypes.Password
+            type: string
+            default: admin
     artifacts:
       icon:
         file: shell-icon.png
         type: tosca.artifacts.File
       driver:
-        file: PerfectStormChassisShell2GDriver.zip
+        file: PerfectStormChassisShell2G.zip
         type: tosca.artifacts.File
